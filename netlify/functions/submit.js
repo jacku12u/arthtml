@@ -112,14 +112,14 @@ exports.handler = async (event) => {
     return json(400, { message: validationError });
   }
 
-  const smtpHost = process.env.SMTP_HOST || "smtp.qq.com";
+  const smtpHost = process.env.SMTP_HOST;
   const smtpPort = Number(process.env.SMTP_PORT || 465);
   const smtpSecure = String(process.env.SMTP_SECURE || "true") === "true";
   const smtpUser = process.env.SMTP_USER;
   const smtpPass = process.env.SMTP_PASS;
   const mailTo = process.env.MAIL_TO;
 
-  if (!smtpUser || !smtpPass || !mailTo) {
+  if (!smtpHost || !smtpUser || !smtpPass || !mailTo) {
     return json(500, { message: "邮件服务未配置，请检查 Netlify 环境变量。" });
   }
 

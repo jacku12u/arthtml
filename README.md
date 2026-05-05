@@ -28,12 +28,12 @@ npm run dev
 4. 在 Netlify 的 Site configuration -> Environment variables 添加：
 
 ```text
-SMTP_HOST=smtp.qq.com
+SMTP_HOST=你的SMTP服务器地址
 SMTP_PORT=465
 SMTP_SECURE=true
-SMTP_USER=540146048@qq.com
+SMTP_USER=发件邮箱
 SMTP_PASS=QQ邮箱授权码
-MAIL_TO=1375914087@qq.com
+MAIL_TO=收件邮箱
 ```
 
 5. 重新 Deploy。部署完成后，网页提交会调用 `/api/submit` 并发送邮件。
