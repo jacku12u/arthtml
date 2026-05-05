@@ -1,0 +1,133 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>2026 全球华语小主持人大赛报名表</title>
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <main class="page-shell">
+      <section class="intro">
+        <div>
+          <p class="eyebrow">2026 Entry Form</p>
+          <h1>少儿侨报杯 · 全球华语小主持人大赛</h1>
+          <p class="subtitle">请完整填写报名信息。提交成功后，报名内容会发送至组委会邮箱。</p>
+        </div>
+        <div class="intro-note">
+          <span>受付中</span>
+          <strong>Global Chinese Little Host Contest</strong>
+        </div>
+      </section>
+
+      <form id="registrationForm" class="form-panel">
+        <input type="text" name="website" class="hidden-field" tabindex="-1" autocomplete="off" />
+
+        <section class="form-section">
+          <h2>参赛者信息</h2>
+          <div class="grid">
+            <label>
+              <span>姓名 / 氏名 / Name</span>
+              <input name="name" required autocomplete="name" />
+            </label>
+
+            <label>
+              <span>性别 / 性別 / Gender</span>
+              <select name="gender" required>
+                <option value="">请选择</option>
+                <option>男 / Male</option>
+                <option>女 / Female</option>
+                <option>其他 / Other</option>
+              </select>
+            </label>
+
+            <label>
+              <span>出生日期 / 生年月日 / DOB</span>
+              <input name="dob" type="date" required />
+            </label>
+
+            <label>
+              <span>国籍地区 / 国籍・地区 / Nationality</span>
+              <input name="nationality" required />
+            </label>
+
+            <label>
+              <span>电话 / 電話 / Phone</span>
+              <input name="phone" type="tel" required autocomplete="tel" />
+            </label>
+
+            <label>
+              <span>邮箱 / メール / Email</span>
+              <input name="email" type="email" required autocomplete="email" />
+            </label>
+          </div>
+        </section>
+
+        <section class="form-section">
+          <h2>参赛信息</h2>
+          <fieldset>
+            <legend>年龄组别 / 年齢グループ / Age Group</legend>
+            <div class="option-grid">
+              <label><input type="radio" name="ageGroup" value="初小组（6-7岁）" required />初小组（6-7岁）</label>
+              <label><input type="radio" name="ageGroup" value="中小组（8-10岁）" />中小组（8-10岁）</label>
+              <label><input type="radio" name="ageGroup" value="高小组（11-12岁）" />高小组（11-12岁）</label>
+              <label><input type="radio" name="ageGroup" value="中学组（13-17岁）" />中学组（13-17岁）</label>
+            </div>
+          </fieldset>
+
+          <div class="grid">
+            <label>
+              <span>选送机构/学校 / Institution</span>
+              <input name="institution" required />
+            </label>
+
+            <label>
+              <span>指导教师姓名 / Teacher</span>
+              <input name="teacher" />
+            </label>
+          </div>
+
+          <fieldset>
+            <legend>是否赴日本参加总决赛 / Finals in Japan</legend>
+            <div class="option-grid compact">
+              <label><input type="radio" name="japanFinal" value="参加" required />参加 / Participate</label>
+              <label><input type="radio" name="japanFinal" value="不参加" />不参加 / Do not participate</label>
+            </div>
+          </fieldset>
+
+          <label>
+            <span>决赛艺术特长展示内容 / Talent Show Content</span>
+            <textarea name="talent" rows="4" placeholder="例如：朗诵、主持、舞蹈、乐器等"></textarea>
+          </label>
+        </section>
+
+        <section class="form-section">
+          <h2>家长确认</h2>
+          <div class="grid">
+            <label>
+              <span>家长姓名 / Parent Name</span>
+              <input name="parentName" required />
+            </label>
+
+            <label>
+              <span>提交日期 / Date</span>
+              <input name="submitDate" type="date" required />
+            </label>
+          </div>
+
+          <label class="agreement">
+            <input type="checkbox" name="agreement" required />
+            <span>我确认以上信息真实有效，并同意用于本次赛事报名联系。</span>
+          </label>
+        </section>
+
+        <div class="actions">
+          <button type="submit" id="submitButton">提交报名</button>
+          <p id="statusMessage" role="status" aria-live="polite"></p>
+        </div>
+      </form>
+    </main>
+
+    <script src="/script.js"></script>
+  </body>
+</html>
