@@ -4,9 +4,9 @@ const fieldLabels = {
   name: "姓名",
   gender: "性别",
   dob: "出生日期",
-  nationality: "国籍地区",
+  nationality: "国籍或地区",
   phone: "电话",
-  email: "邮箱",
+  email: "邮箱或微信",
   ageGroup: "年龄组别",
   institution: "选送机构/学校",
   teacher: "指导教师姓名",
@@ -62,10 +62,6 @@ function validate(data) {
 
   if (!data.agreement) {
     return "请确认报名信息真实有效。";
-  }
-
-  if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(data.email)) {
-    return "请填写有效邮箱。";
   }
 
   return "";
