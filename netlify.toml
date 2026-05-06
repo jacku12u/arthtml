@@ -10,3 +10,8 @@
   from = "/api/submit"
   to = "/.netlify/functions/submit"
   status = 200
+
+[[redirects]]
+  from = "/api/upload-url"
+  to = "/.netlify/functions/upload-url"
+  status = 200

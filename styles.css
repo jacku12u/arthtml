@@ -144,6 +144,18 @@ textarea {
   font: inherit;
 }
 
+input[type="file"] {
+  padding: 10px;
+}
+
+.field-help {
+  display: block;
+  margin-top: 8px;
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.45;
+}
+
 textarea {
   min-height: 112px;
   resize: vertical;

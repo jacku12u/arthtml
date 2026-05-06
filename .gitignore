@@ -2,3 +2,5 @@ node_modules/
 .netlify/
 .env
 dist/
+netlify-dev.*.log
+local-dev.*.log

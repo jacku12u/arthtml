@@ -37,7 +37,6 @@
                 <option value="">请选择</option>
                 <option>男 / Male</option>
                 <option>女 / Female</option>
-                <option>其他 / Other</option>
               </select>
             </label>
 
@@ -98,6 +97,12 @@
           <label>
             <span>决赛艺术特长展示内容 / Talent Show Content</span>
             <textarea name="talent" rows="4" placeholder="例如：朗诵、主持、舞蹈、乐器等"></textarea>
+          </label>
+
+          <label>
+            <span>参赛视频 / Video Upload</span>
+            <input id="videoFile" name="videoFile" type="file" accept="video/*" />
+            <small class="field-help">建议上传 MP4/MOV，单个文件不超过 500MB。提交时会先上传视频，再发送报名邮件。</small>
           </label>
         </section>
 

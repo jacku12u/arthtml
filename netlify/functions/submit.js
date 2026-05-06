@@ -12,6 +12,8 @@ const fieldLabels = {
   teacher: "指导教师姓名",
   japanFinal: "是否赴日本参加总决赛",
   talent: "决赛艺术特长展示内容",
+  videoUrl: "参赛视频链接",
+  videoName: "参赛视频文件名",
   parentName: "家长姓名",
   submitDate: "提交日期"
 };
@@ -68,9 +70,20 @@ function validate(data) {
 }
 
 function buildHtml(data) {
+  const emailData = {
+    ...data,
+    videoUrl: data.video && data.video.url ? data.video.url : "",
+    videoName: data.video && data.video.name ? data.video.name : ""
+  };
   const rows = Object.entries(fieldLabels)
     .map(([key, label]) => {
-      return `<tr><th>${escapeHtml(label)}</th><td>${escapeHtml(data[key]) || "-"}</td></tr>`;
+      const value = emailData[key];
+      const cell =
+        key === "videoUrl" && value
+          ? `<a href="${escapeHtml(value)}">${escapeHtml(value)}</a>`
+          : escapeHtml(value) || "-";
+
+      return `<tr><th>${escapeHtml(label)}</th><td>${cell}</td></tr>`;
     })
     .join("");
 
@@ -85,8 +98,14 @@ function buildHtml(data) {
 }
 
 function buildText(data) {
+  const emailData = {
+    ...data,
+    videoUrl: data.video && data.video.url ? data.video.url : "",
+    videoName: data.video && data.video.name ? data.video.name : ""
+  };
+
   return Object.entries(fieldLabels)
-    .map(([key, label]) => `${label}: ${data[key] || "-"}`)
+    .map(([key, label]) => `${label}: ${emailData[key] || "-"}`)
     .join("\n");
 }
 
@@ -130,14 +149,19 @@ exports.handler = async (event) => {
   });
 
   try {
-    await transporter.sendMail({
+    const message = {
       from: `"小主持报名系统" <${smtpUser}>`,
       to: mailTo,
-      replyTo: data.email,
       subject: `新报名：${data.name} - 2026 全球华语小主持人大赛`,
       text: buildText(data),
       html: buildHtml(data)
-    });
+    };
+
+    if (/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(data.email)) {
+      message.replyTo = data.email;
+    }
+
+    await transporter.sendMail(message);
 
     return json(200, { message: "提交成功。" });
   } catch (error) {
