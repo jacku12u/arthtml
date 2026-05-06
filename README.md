@@ -40,7 +40,7 @@ R2_BUCKET_NAME=R2 Bucket 名称
 R2_ACCESS_KEY_ID=R2 Access Key ID
 R2_SECRET_ACCESS_KEY=R2 Secret Access Key
 R2_PUBLIC_BASE_URL=R2 公开访问地址或自定义域名
-R2_MAX_VIDEO_SIZE=524288000
+R2_MAX_VIDEO_SIZE=视频大小上限，单位为字节
 ```
 
 5. 重新 Deploy。部署完成后，网页提交会调用 `/api/submit` 并发送邮件。
